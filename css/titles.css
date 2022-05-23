@@ -1,0 +1,9 @@
+#main, #title {
+    margin: auto;
+}
+#main {
+    font-size: 300%;
+}
+#title {
+    font-size: 200%;
+}

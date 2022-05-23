@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70px;
+    background: linear-gradient(#000, #0000);
+    font-size: 22px;
+}
+
+nav {
+    padding-bottom: 15px;
+}
+
+.logo-nombre {
+    font-size: 1.3em;
+}
+
+nav a {
+    padding-left: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+nav a:hover {
+    color: azure;
+}
+
+@media (min-width:600px) {
+    header {
+        flex-direction: row;
+        padding: 0px 30px;
+        justify-content: space-between;
+    }
+}
