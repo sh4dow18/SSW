@@ -19,8 +19,8 @@
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
-                <i class="fas fa-movie"></i><a href="movies.php" class="nav-link">Peliculas</a>
-                <i class="fas fa-movie"></i><a href="stand_up.php" class="nav-link">Stand up</a>
+                <a href="movies.php" class="nav-link">Peliculas</a>
+                <a href="stand_up.php" class="nav-link">Stand up</a>
                 <?php
                     if ($_SESSION['username'] == 'admin') {
                         echo "<a href='admin.php' class='nav-link'>Administracion</a>";

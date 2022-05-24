@@ -19,8 +19,8 @@
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
-                <i class="fas fa-movie"></i><a href="movies.php" class="nav-link">Peliculas</a>
-                <i class="fas fa-movie"></i><a href="stand_up.php" class="nav-link">Stand up</a>
+                <a href="movies.php" class="nav-link">Peliculas</a>
+                <a href="stand_up.php" class="nav-link">Stand up</a>
                 <?php
                     if ($_SESSION['username'] == 'admin') {
                         echo "<a href='admin.php' class='nav-link'>Administracion</a>";
@@ -36,14 +36,14 @@
         <div id="flex">
             <?php
                 require_once "../php/connect.php";
-                $series_query = "SELECT * FROM series ORDER BY name ASC";
+                $series_query = "SELECT * FROM series ORDER BY name_ ASC";
                 $result = $connection->query($series_query);
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                    $name = str_replace(' ', '_', $row['name']);
+                    $name = str_replace(' ', '_', $row['name_']);
                     echo 
                     "<div>
                         <a href='seasons_and_chapters.php?serie=$name'><img src='../images/series/$name.jpg'></a>
-                        <h2>{$row['name']}</h2>
+                        <h2>{$row['name_']}</h2>
                     </div>";
                 }
                 mysqli_close($connection);

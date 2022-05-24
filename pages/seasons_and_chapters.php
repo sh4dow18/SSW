@@ -23,7 +23,7 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <i class='fas fa-angle-left'></i></i><a href="series.php" class="nav-link">Volver a Series</a>
+                <i class='fas fa-angle-left'></i><a href="series.php" class="nav-link">Volver a Series</a>
             </nav>
         </header>
         <div id="title">
@@ -32,7 +32,7 @@
             ?>
         </div>
         <?php
-            $chapters_query = "SELECT * FROM series WHERE name = '$serie';";
+            $chapters_query = "SELECT * FROM series WHERE name_ = '$serie';";
             $result = $connection->query($chapters_query);
             $row = $result->fetch_array(MYSQLI_ASSOC);
             $number_of_seasons = intval($row['seasons']);

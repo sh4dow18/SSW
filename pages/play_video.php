@@ -5,18 +5,18 @@
     }
     if (isset($_GET['serie'])) {
         $title = str_replace('_', ' ', $_GET['serie']) . ": S" . $_GET['season'] . "E" . $_GET['chapter'];
-        $video = "../Series/{$_GET['serie']}/Season {$_GET['season']}/Episode {$_GET['chapter']}.mp4";
-        $return = "<i class='fas fa-angle-left'></i></i><a href='seasons_and_chapters.php?serie={$_GET['serie']}' class='nav-link'>Volver a los capitulos de {$_GET['serie']}</a>";
+        $video = "../videos/Series/{$_GET['serie']}/Season {$_GET['season']}/Episode {$_GET['chapter']}.mp4";
+        $return = "<i class='fas fa-angle-left'></i><a href='seasons_and_chapters.php?serie={$_GET['serie']}' class='nav-link'>Volver a los capitulos de {$_GET['serie']}</a>";
     }
     else if (isset($_GET['movie'])) {
         $title = str_replace('_', ' ', $_GET['movie']);
-        $video = "../Movies/{$_GET['movie']}.mp4";
-        $return = "<i class='fas fa-angle-left'></i></i><a href='movies.php' class='nav-link'>Volver a Peliculas</a>";
+        $video = "../videos/Movies/{$_GET['movie']}.mp4";
+        $return = "<i class='fas fa-angle-left'></i><a href='movies.php' class='nav-link'>Volver a Peliculas</a>";
     }
     else if (isset($_GET['comedian'])) {
         $title = $_GET['comedian'] . ": " . str_replace('_', ' ', $_GET['show']);
-        $video = "../Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
-        $return = "<i class='fas fa-angle-left'></i></i><a href='stand_up.php' class='nav-link'>Volver a Stand Up</a>";
+        $video = "../videos/Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
+        $return = "<i class='fas fa-angle-left'></i><a href='stand_up.php' class='nav-link'>Volver a Stand Up</a>";
     }
 ?>
 <!DOCTYPE html>
