@@ -33,23 +33,32 @@
         <div id="title">
             <h1>Peliculas</h1>
         </div>
-        <div>
-            <div id="flex">
-                <?php
-                    require_once "../php/connect.php";
-                    $movies_query = "SELECT * FROM movies ORDER BY name ASC";
-                    $result = $connection->query($movies_query);
-                    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                        $name = str_replace('_', ' ', $row['name']);
-                        echo 
-                        "<div>
-                            <a href='play_video.php?movie={$row['name']}'><img src='../images/movies/{$row['name']}.jpg'></a>
-                            <h2>$name</h2>
-                        </div>";
-                    }
-                    mysqli_close($connection);
-                ?>
+        <form action="movies.php" method="post">
+            <div id="search">
+                <input name="movie_searched" type="text" placeholder="Pelicula a Buscar" required>
+                <!-- <input name="search" type="submit" value="Buscar"> -->
             </div>
+        </form>
+        <div id="flex">
+            <?php
+                require_once "../php/connect.php";
+                if (isset($_POST['movie_searched']) && $_POST['movie_searched'] != " ") {
+                    $movies_query = "SELECT * FROM movies WHERE name LIKE '%{$_POST['movie_searched']}%' ORDER BY name ASC;";
+                }
+                else {
+                    $movies_query = "SELECT * FROM movies ORDER BY name ASC";
+                }
+                $result = $connection->query($movies_query);
+                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                    $name = str_replace('_', ' ', $row['name']);
+                    echo 
+                    "<div>
+                        <a href='play_video.php?movie={$row['name']}'><img src='../images/movies/{$row['name']}.jpg'></a>
+                        <h2>$name</h2>
+                    </div>";
+                }
+                mysqli_close($connection);
+            ?>
         </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
