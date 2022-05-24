@@ -33,10 +33,20 @@
         <div id="title">
             <h1>Stand Up</h1>
         </div>
+        <form action="stand_up.php" method="post">
+            <div id="search">
+                <input name="show_searched" type="text" placeholder="Show a Buscar" required>
+            </div>
+        </form>
         <div id="flex">
             <?php
                 require_once "../php/connect.php";
-                $standup_query = "SELECT * FROM standup ORDER BY order_ ASC;";
+                if (isset($_POST['show_searched']) && $_POST['show_searched'] != " ") {
+                    $standup_query = "SELECT * FROM standup WHERE show_ LIKE '%{$_POST['show_searched']}%' ORDER BY order_ ASC;";
+                }
+                else {
+                    $standup_query = "SELECT * FROM standup ORDER BY order_ ASC;";
+                }
                 $result = $connection->query($standup_query);
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                     $name = str_replace('_', ' ', $row['show_']);

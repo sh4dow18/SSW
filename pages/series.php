@@ -33,17 +33,27 @@
         <div id="title">
             <h1>Series</h1>
         </div>
+        <form action="series.php" method="post">
+            <div id="search">
+                <input name="serie_searched" type="text" placeholder="Serie a Buscar" required>
+            </div>
+        </form>
         <div id="flex">
             <?php
                 require_once "../php/connect.php";
-                $series_query = "SELECT * FROM series ORDER BY name_ ASC";
+                if (isset($_POST['serie_searched']) && $_POST['serie_searched'] != " ") {
+                    $series_query = "SELECT * FROM series WHERE name_ LIKE '%{$_POST['serie_searched']}%' ORDER BY name_ ASC;";
+                }
+                else {
+                    $series_query = "SELECT * FROM series ORDER BY name_ ASC";
+                }
                 $result = $connection->query($series_query);
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                    $name = str_replace(' ', '_', $row['name_']);
+                    $name = str_replace('_', ' ', $row['name_']);
                     echo 
                     "<div>
-                        <a href='seasons_and_chapters.php?serie=$name'><img src='../images/series/$name.jpg'></a>
-                        <h2>{$row['name_']}</h2>
+                        <a href='seasons_and_chapters.php?serie={$row['name_']}'><img src='../images/series/{$row['name_']}.jpg'></a>
+                        <h2>$name</h2>
                     </div>";
                 }
                 mysqli_close($connection);

@@ -36,7 +36,6 @@
         <form action="movies.php" method="post">
             <div id="search">
                 <input name="movie_searched" type="text" placeholder="Pelicula a Buscar" required>
-                <!-- <input name="search" type="submit" value="Buscar"> -->
             </div>
         </form>
         <div id="flex">

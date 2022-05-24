@@ -4,9 +4,10 @@
         header("Location: error.php?error=login");
     }
     if (isset($_GET['serie'])) {
-        $title = str_replace('_', ' ', $_GET['serie']) . ": S" . $_GET['season'] . "E" . $_GET['chapter'];
+        $name = str_replace('_', ' ', $_GET['serie']);
+        $title = $name . ": S" . $_GET['season'] . "E" . $_GET['chapter'];
         $video = "../videos/Series/{$_GET['serie']}/Season {$_GET['season']}/Episode {$_GET['chapter']}.mp4";
-        $return = "<i class='fas fa-angle-left'></i><a href='seasons_and_chapters.php?serie={$_GET['serie']}' class='nav-link'>Volver a los capitulos de {$_GET['serie']}</a>";
+        $return = "<i class='fas fa-angle-left'></i><a href='seasons_and_chapters.php?serie={$_GET['serie']}' class='nav-link'>Volver a los capitulos de $name</a>";
     }
     else if (isset($_GET['movie'])) {
         $title = str_replace('_', ' ', $_GET['movie']);
