@@ -44,6 +44,24 @@
                 <?php echo "<source type='video/mp4' src='$video'>"; ?>
             </video>
         </div>
+        <div id='change_episode'>
+            <?php
+                if (isset($_GET['serie']) && $_GET['chapter'] != 1) {
+                    $previous = $_GET['chapter'] - 1;
+                    if ($previous < 10) {
+                        $previous = "0" . $previous;
+                    }
+                    echo "<div><i class='fas fa-angle-left'></i><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$previous&max={$_GET['max']}'>Ver el Episodio $previous</a></div>";
+                }
+                if (isset($_GET['serie']) && $_GET['chapter'] != $_GET['max']) {
+                    $next = $_GET['chapter'] + 1;
+                    if ($next < 10) {
+                        $next = "0" . $next;
+                    }
+                    echo "<div><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$next&max={$_GET['max']}'>Ver el Episodio $next</a><i class='fas fa-angle-right'></i></div>";
+                }
+            ?>
+        </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
 </html>

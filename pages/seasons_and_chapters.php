@@ -55,7 +55,7 @@
                     }
                     echo
                     "   <tr>
-                            <td><a href='play_video.php?serie=$serie&season=$first_season&chapter=$first_chapter'>Episodio $first_chapter</a></td>
+                            <td><a href='play_video.php?serie=$serie&season=$first_season&chapter=$first_chapter&max=$number_of_chapters'>Episodio $first_chapter</a></td>
                         </tr>";
                     $first_chapter = intval($first_chapter);
                     $first_chapter++;
@@ -64,7 +64,6 @@
                     "</tbody>
                 </table>";
                 $begin = $begin + 3;
-                $end = $end + 3;
                 $first_season++;
                 $first_chapter = 1;
             }

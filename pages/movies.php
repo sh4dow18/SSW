@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="../css/logo.css">
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
+        <link rel="stylesheet" type="text/css" href="../css/search.css">
     </head>
     <body>
         <header>
