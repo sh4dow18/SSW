@@ -9,7 +9,7 @@
    </head>
     <body>
         <header>
-            <a id="logo-header" class="logo" href="index.php"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Colegio Humanista Costarricense</p></a>
+            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Volver al Inicio</a>
             </nav>

@@ -17,9 +17,9 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <a href="admin.php" class="nav-link">Eliminar</a>
-                <a href="admin_movie.php" class="nav-link">Peliculas</a>
+                <a href="admin.php" class="nav-link">Usuarios</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
+                <a href="admin_movie.php" class="nav-link">Peliculas</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Cerrar Sesion</a>
             </nav>
@@ -40,7 +40,7 @@
                     <input name="season_begin" type="number" placeholder="1" required>
                     <h3>Capitulo en el que Empieza:</h3>
                     <input name="chapter_begin" type="number" placeholder="1" required>
-                    <input type="submit" name="Submit" value="Agregar">
+                    <input type="submit" name="Add" value="Agregar">
                 </div>
             </form>
         </div>
@@ -72,16 +72,28 @@
                 </div>
             </form>
         </div>
+        <div id="login">
+            <div id="login-header">
+                <h1>Eliminar Serie</h1>
+            </div>
+            <form action="admin_serie.php" method="post">
+                <div id="login-form">
+                    <h3>Eliminar:</h3>
+                    <input name="serie" type="list" list="list" placeholder="Serie" required>
+                    <input type="submit" name="Delete" value="Eliminar">
+                </div>
+            </form>
+        </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
 </html>
 <?php
-    if (isset($_POST['Submit'])) {
+    if (isset($_POST['Add'])) {
         require_once "../php/connect.php";
-        $verify_query = "SELECT * FROM series WHERE name_ = '{$_POST['serie']}';";
+        $name = str_replace(' ', '_', $_POST['serie']);
+        $verify_query = "SELECT * FROM series WHERE name_ = '$name';";
         $result = $connection->query($verify_query);
         if ($result->num_rows == 0) {
-            $name = str_replace(' ', '_', $_POST['serie']);
             $serie_query = "INSERT INTO series (name_, seasons, limits, season_begin, chapter_begin) VALUES ('$name', {$_POST['seasons']}, '{$_POST['limits']}', {$_POST['season_begin']}, {$_POST['chapter_begin']});";
             mysqli_query($connection, $serie_query);
             echo "<script language='javascript'>alert('Se ha agregado {$_POST['serie']} con exito')</script>";
@@ -89,17 +101,16 @@
         else {
             echo "<script language='javascript'>alert('La Serie {$_POST['serie']} ya existe en el sistema')</script>";
         }
-        mysqli_close($connection);
     }
     if (isset($_POST['Update'])) {
         require_once "../php/connect.php";
-        $verify_query = "SELECT * FROM series WHERE name_ = '{$_POST['serie']}';";
+        $name = str_replace(' ', '_', $_POST['serie']);
+        $verify_query = "SELECT * FROM series WHERE name_ = '$name';";
         $result = $connection->query($verify_query);
         if ($result->num_rows == 1) {
             $row = $result->fetch_array(MYSQLI_ASSOC);
             $seasons = $row['seasons'] + $_POST['seasons'];
             $limits = $row['limits'] . '/' . $_POST['limits'];
-            $name = str_replace(' ', '_', $_POST['serie']);
             $update_query = "UPDATE series SET seasons = $seasons, limits = $limits WHERE name = {$row['name']};";
             mysqli_query($connection, $update_query);
             echo "<script language='javascript'>alert('Se ha actualizado {$_POST['serie']} con exito')</script>";
@@ -107,6 +118,21 @@
         else {
             echo "<script language='javascript'>alert('La Serie {$_POST['serie']} no existe en el sistema')</script>";
         }
-        mysqli_close($connection);
     }
+    if (isset($_POST['Delete'])) {
+        require_once "../php/connect.php";
+        $name = str_replace(' ', '_', $_POST['serie']);
+        $verify_query = "SELECT * FROM series WHERE name_ = '$name';";
+        $result = $connection->query($verify_query);
+        if ($result->num_rows == 1) {
+            $serie_query = "DELETE FROM series WHERE name_ = '$name';";
+            mysqli_query($connection, $serie_query);
+            echo "<script language='javascript'>alert('Se ha eliminado {$_POST['serie']} con exito')</script>";
+            echo "<script language='javascript'>alert('Recordar que unicamente se ha eliminado el enlace de la serie a este programa, los archivos siguen en su sistema')</script>";
+        }
+        else {
+            echo "<script language='javascript'>alert('La Serie {$_POST['serie']} no existe en el sistema')</script>";
+        }
+    }
+    mysqli_close($connection);
 ?>

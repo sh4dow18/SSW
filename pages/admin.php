@@ -18,15 +18,15 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <a href="admin.php" class="nav-link">Eliminar</a>
-                <a href="admin_movie.php" class="nav-link">Peliculas</a>
+                <a href="admin.php" class="nav-link">Usuarios</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
+                <a href="admin_movie.php" class="nav-link">Peliculas</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Cerrar Sesion</a>
             </nav>
         </header>
         <div id="title">
-            <h1>Administracion</h1>
+            <h1>Usuarios</h1>
         </div>
         <table class="container">
             <thead>
