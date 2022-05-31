@@ -26,6 +26,10 @@
                     <input name="password" type="password" placeholder="Contraseña" required>
                     <h3>Repita la Contraseña:</h3>
                     <input name="password_2" type="password" placeholder="Repita la Contraseña" required>
+                    <div id="child">
+                        <input type=checkbox name="child" value="yes">
+                        Eres un Niño?
+                    </div>
                     <input type="submit" name="Register" value="Registrarse">
                 </div>
             </form>
@@ -41,10 +45,20 @@
         $result = $connection->query($user_query);
         if ($result->num_rows == 0) {
             if ($_POST["password"] == $_POST["password_2"]) {
-                $register_query = "INSERT INTO users (username, password) VALUES ('{$_POST['username']}', md5('{$_POST['password']}'));";
+                $child = 0;
+                if (isset($_POST['child'])) {
+                    $child = 1;
+                }
+                $register_query = "INSERT INTO users (username, password, loggedin, child) VALUES ('{$_POST['username']}', md5('{$_POST['password']}'), 1, $child);";
                 mysqli_query($connection, $register_query);
                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $_POST["username"];
+                if ($child == 0) {
+                    $_SESSION["child"] = 0;
+                }
+                else {
+                    $_SESSION["child"] = 1;
+                }
                 header("Location: home.php");
             }
             else {

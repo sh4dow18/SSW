@@ -47,6 +47,12 @@
                 mysqli_query($connection, $query);
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
+                if ($row['child'] == 0) {
+                    $_SESSION["child"] = 0;
+                }
+                else {
+                    $_SESSION["child"] = 1;
+                }
                 if ($username == 'admin') {
                     header("Location: admin.php");
                 }

@@ -43,10 +43,21 @@
             <?php
                 require_once "../php/connect.php";
                 if (isset($_POST['movie_searched']) && $_POST['movie_searched'] != " ") {
-                    $movies_query = "SELECT * FROM movies WHERE name LIKE '%{$_POST['movie_searched']}%' ORDER BY name ASC;";
+                    if ($_SESSION['child'] == 0) {
+                        $movies_query = "SELECT * FROM movies WHERE name LIKE '%{$_POST['movie_searched']}%' ORDER BY name ASC;";
+                    }
+                    else {
+                        $movies_query = "SELECT * FROM movies WHERE name LIKE '%{$_POST['movie_searched']}%' AND child = {$_SESSION['child']} ORDER BY name ASC;";
+                    }
                 }
                 else {
-                    $movies_query = "SELECT * FROM movies ORDER BY name ASC";
+                    if ($_SESSION['child'] == 0) {
+                        $movies_query = "SELECT * FROM movies ORDER BY name ASC";
+                    }
+                    else {
+                        $movies_query = "SELECT * FROM movies WHERE child = {$_SESSION['child']} ORDER BY name ASC";
+                    }
+                    
                 }
                 $result = $connection->query($movies_query);
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {

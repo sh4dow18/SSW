@@ -26,3 +26,6 @@ img {
     grid-template-columns: auto auto;
     font-size: 20px;
 }
+#child {
+    margin-bottom: 20px;
+}
