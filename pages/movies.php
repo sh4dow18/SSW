@@ -64,7 +64,7 @@
                     $name = str_replace('_', ' ', $row['name']);
                     echo 
                     "<div>
-                        <a href='play_video.php?movie={$row['name']}'><img src='../images/movies/{$row['name']}.jpg'></a>
+                        <a href='play_video.php?movie={$row['name']}'><img src='../images/Movies/{$row['name']}.jpg'></a>
                         <h2>$name</h2>
                     </div>";
                 }

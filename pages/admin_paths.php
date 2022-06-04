@@ -49,8 +49,8 @@
             <tbody>
                 <?php
                     require_once "../php/connect.php";
-                    $users_query = "SELECT * FROM paths;";
-                    $result = $connection->query($users_query);
+                    $paths_query = "SELECT * FROM paths;";
+                    $result = $connection->query($paths_query);
                     while($row = $result->fetch_array(MYSQLI_ASSOC)){
                         if ($row['selected'] == 1) {
                             $selected = $row['name'];
