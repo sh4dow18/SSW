@@ -18,6 +18,7 @@
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <a href="admin.php" class="nav-link">Usuarios</a>
+                <a href="admin_paths.php" class="nav-link">Rutas</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
                 <a href="admin_movie.php" class="nav-link">Peliculas</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>

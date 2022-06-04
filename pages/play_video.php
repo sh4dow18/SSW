@@ -3,22 +3,28 @@
     if (!isset($_SESSION['loggedin'])) {
         header("Location: error.php?error=login");
     }
+    require_once "../php/connect.php";
+    $path_query = "SELECT * FROM paths WHERE selected = 1;";
+    $result = $connection->query($path_query);
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+    $path = $row['path'];
     if (isset($_GET['serie'])) {
         $name = str_replace('_', ' ', $_GET['serie']);
         $title = $name . ": S" . $_GET['season'] . "E" . $_GET['chapter'];
-        $video = "../videos/Series/{$_GET['serie']}/Season {$_GET['season']}/Episode {$_GET['chapter']}.mp4";
+        $video = "$path/Series/{$_GET['serie']}/Season {$_GET['season']}/Episode {$_GET['chapter']}.mp4";
         $return = "<i class='fas fa-angle-left'></i><a href='seasons_and_chapters.php?serie={$_GET['serie']}' class='nav-link'>Volver a los capitulos de $name</a>";
     }
     else if (isset($_GET['movie'])) {
         $title = str_replace('_', ' ', $_GET['movie']);
-        $video = "../videos/Movies/{$_GET['movie']}.mp4";
+        $video = "$path/Movies/{$_GET['movie']}.mp4";
         $return = "<i class='fas fa-angle-left'></i><a href='movies.php' class='nav-link'>Volver a Peliculas</a>";
     }
     else if (isset($_GET['comedian'])) {
         $title = $_GET['comedian'] . ": " . str_replace('_', ' ', $_GET['show']);
-        $video = "../videos/Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
+        $video = "$path/Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
         $return = "<i class='fas fa-angle-left'></i><a href='stand_up.php' class='nav-link'>Volver a Stand Up</a>";
     }
+    mysqli_close($connection);
 ?>
 <!DOCTYPE html>
 <html>
