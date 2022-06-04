@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo" href="../index.html"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo" href="../index.php"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
         </header>
         <div id="login">
             <div id="login-header">
