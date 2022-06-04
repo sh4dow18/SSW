@@ -34,45 +34,44 @@
                     <input type="submit" name="Add" value="Agregar">
                 </div>
             </form>
-        </div>
-        <div id="title">
-            <h1>Rutas</h1>
-        </div>
-        <table class="container">
-            <thead>
-                <tr>
-                    <th>Ruta</th>
-                    <th>Seleccionar</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    require_once "../php/connect.php";
-                    $users_query = "SELECT * FROM paths;";
-                    $result = $connection->query($users_query);
-                    while($row = $result->fetch_array(MYSQLI_ASSOC)){
-                        if ($row['selected'] == 1) {
-                            $selected = $row['name'];
+            <div id="title">
+                <h1>Rutas</h1>
+            </div>
+            <table class="container">
+                <thead>
+                    <tr>
+                        <th>Ruta</th>
+                        <th>Seleccionar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        require_once "../php/connect.php";
+                        $users_query = "SELECT * FROM paths;";
+                        $result = $connection->query($users_query);
+                        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                            if ($row['selected'] == 1) {
+                                $selected = $row['name'];
+                            }
+                            echo
+                            "<tr>
+                                <td>{$row['name']}</td>
+                                <td><a href='../php/select_path.php?path_name={$row['name']}'>Seleccionar</a></td>";
+                            if ($row['name'] != "Default") {
+                                echo "<td><a href='../php/delete_path.php?path_name={$row['name']}'>Eliminar</a></td>";
+                            }
+                            else {
+                                echo "<td>Eliminar</td>";
+                            }
+                            echo "</tr>";
                         }
-                        echo
-                        "<tr>
-                            <td>{$row['name']}</td>
-                            <td><a href='../php/select_path.php?path_name={$row['name']}'>Seleccionar</a></td>";
-                        if ($row['name'] != "Default") {
-                            echo "<td><a href='../php/delete_path.php?path_name={$row['name']}'>Eliminar</a></td>";
-                        }
-                        else {
-                            echo "<td>Eliminar</td>";
-                        }
-                        echo "</tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
-        <?php
-            echo "<p>La ruta seleccionada es <b>$selected</b></p>";
-        ?>
+                    ?>
+                </tbody>
+            </table>
+            <?php
+                echo "<p>La ruta seleccionada es <b>$selected</b></p>";
+            ?>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
 </html>
