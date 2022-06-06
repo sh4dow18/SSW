@@ -21,8 +21,10 @@
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
                 <a href="movies.php" class="nav-link">Peliculas</a>
-                <a href="stand_up.php" class="nav-link">Stand up</a>
                 <?php
+                    if ($_SESSION['child'] == 0) {
+                        echo "<a href='stand_up.php' class='nav-link'>Stand up</a>";
+                    }
                     if ($_SESSION['username'] == 'admin') {
                         echo "<a href='admin.php' class='nav-link'>Administracion</a>";
                     }
@@ -43,10 +45,20 @@
             <?php
                 require_once "../php/connect.php";
                 if (isset($_POST['serie_searched']) && $_POST['serie_searched'] != " ") {
-                    $series_query = "SELECT * FROM series WHERE name_ LIKE '%{$_POST['serie_searched']}%' ORDER BY name_ ASC;";
+                    if ($_SESSION['child'] == 0) {
+                        $series_query = "SELECT * FROM series WHERE name_ LIKE '%{$_POST['serie_searched']}%' ORDER BY name_ ASC;";
+                    }
+                    else {
+                        $series_query = "SELECT * FROM series WHERE name_ LIKE '%{$_POST['serie_searched']}%' AND child = {$_SESSION['child']} ORDER BY name_ ASC;";
+                    }
                 }
                 else {
-                    $series_query = "SELECT * FROM series ORDER BY name_ ASC";
+                    if ($_SESSION['child'] == 0) {
+                        $series_query = "SELECT * FROM series ORDER BY name_ ASC";
+                    }
+                    else {
+                        $series_query = "SELECT * FROM series WHERE child = {$_SESSION['child']} ORDER BY name_ ASC";
+                    }
                 }
                 $result = $connection->query($series_query);
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {

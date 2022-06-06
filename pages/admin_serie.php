@@ -41,6 +41,10 @@
                     <input name="season_begin" type="number" placeholder="1" required>
                     <h3>Capitulo en el que Empieza:</h3>
                     <input name="chapter_begin" type="number" placeholder="1" required>
+                    <div id="child">
+                        <input type=checkbox name="child" value="yes">
+                        La Serie es Apta para Niños?
+                    </div>
                     <input type="submit" name="Add" value="Agregar">
                 </div>
             </form>
@@ -69,6 +73,10 @@
                     <input name="seasons" type="number" placeholder="2" required>
                     <h3>Agregar a Codigo de Capitulos:</h3>
                     <input name="limits" type="text" placeholder="15/10" required>
+                    <div id="child">
+                        <input type=checkbox name="child" value="yes">
+                        La Serie es Apta para Niños?
+                    </div>
                     <input type="submit" name="Update" value="Actualizar">
                 </div>
             </form>
@@ -95,7 +103,11 @@
         $verify_query = "SELECT * FROM series WHERE name_ = '$name';";
         $result = $connection->query($verify_query);
         if ($result->num_rows == 0) {
-            $serie_query = "INSERT INTO series (name_, seasons, limits, season_begin, chapter_begin) VALUES ('$name', {$_POST['seasons']}, '{$_POST['limits']}', {$_POST['season_begin']}, {$_POST['chapter_begin']});";
+            $child = 0;
+            if (isset($_POST['child'])) {
+                $child = 1;
+            }
+            $serie_query = "INSERT INTO series (name_, seasons, limits, season_begin, chapter_begin, child) VALUES ('$name', {$_POST['seasons']}, '{$_POST['limits']}', {$_POST['season_begin']}, {$_POST['chapter_begin'], $child});";
             mysqli_query($connection, $serie_query);
             echo "<script language='javascript'>alert('Se ha agregado {$_POST['serie']} con exito')</script>";
         }
@@ -109,10 +121,14 @@
         $verify_query = "SELECT * FROM series WHERE name_ = '$name';";
         $result = $connection->query($verify_query);
         if ($result->num_rows == 1) {
+            $child = 0;
+            if (isset($_POST['child'])) {
+                $child = 1;
+            }
             $row = $result->fetch_array(MYSQLI_ASSOC);
             $seasons = $row['seasons'] + $_POST['seasons'];
             $limits = $row['limits'] . '/' . $_POST['limits'];
-            $update_query = "UPDATE series SET seasons = $seasons, limits = $limits WHERE name = {$row['name']};";
+            $update_query = "UPDATE series SET seasons = $seasons, limits = $limits, child = $child WHERE name = {$row['name']};";
             mysqli_query($connection, $update_query);
             echo "<script language='javascript'>alert('Se ha actualizado {$_POST['serie']} con exito')</script>";
         }

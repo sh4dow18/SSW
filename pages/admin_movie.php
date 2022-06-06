@@ -44,6 +44,22 @@
         <p>Para ver las peliculas, hacer click <a href='movies.php' class='nav-link'>aqui</a></p>
         <div id="login">
             <div id="login-header">
+                <h1>Editar Pelicula</h1>
+            </div>
+            <form action="admin_movie.php" method="post">
+                <div id="login-form">
+                    <h3>Pelicula:</h3>
+                    <input name="movie" type="text" placeholder="Pelicula" required>
+                    <div id="child">
+                        <input type=checkbox name="child" value="yes">
+                        La Pelicula es Apta para Niños?
+                    </div>
+                    <input type="submit" name="Update" value="Actualizar">
+                </div>
+            </form>
+        </div>
+        <div id="login">
+            <div id="login-header">
                 <h1>Eliminar Pelicula</h1>
             </div>
             <form action="admin_movie.php" method="post">

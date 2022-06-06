@@ -21,8 +21,10 @@
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
                 <a href="movies.php" class="nav-link">Peliculas</a>
-                <a href="stand_up.php" class="nav-link">Stand up</a>
                 <?php
+                    if ($_SESSION['child'] == 0) {
+                        echo "<a href='stand_up.php' class='nav-link'>Stand up</a>";
+                    }
                     if ($_SESSION['username'] == 'admin') {
                         echo "<a href='admin.php' class='nav-link'>Administracion</a>";
                     }
