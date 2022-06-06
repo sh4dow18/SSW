@@ -53,7 +53,7 @@
                     $name = str_replace('_', ' ', $row['name_']);
                     echo 
                     "<div>
-                        <a href='seasons_and_chapters.php?serie={$row['name_']}'><img src='../images/series/{$row['name_']}.jpg'></a>
+                        <a href='seasons_and_chapters.php?serie={$row['name_']}'><img src='../images/Series/{$row['name_']}.jpg'></a>
                         <h2>$name</h2>
                     </div>";
                 }
