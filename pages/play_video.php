@@ -18,12 +18,14 @@
         $title = str_replace('_', ' ', $_GET['movie']);
         $video = "$path/Movies/{$_GET['movie']}.mp4";
         $return = "<i class='fas fa-angle-left'></i><a href='movies.php' class='nav-link'>Volver a Peliculas</a>";
+        $last_video = "UPDATE users SET last_movie = '{$_GET['movie']}' WHERE username = '{$_SESSION['username']}';";
     }
     else if (isset($_GET['comedian'])) {
         $title = $_GET['comedian'] . ": " . str_replace('_', ' ', $_GET['show']);
         $video = "$path/Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
         $return = "<i class='fas fa-angle-left'></i><a href='stand_up.php' class='nav-link'>Volver a Stand Up</a>";
     }
+    mysqli_query($connection, $last_video);
     mysqli_close($connection);
 ?>
 <!DOCTYPE html>

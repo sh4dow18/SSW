@@ -41,9 +41,27 @@
                 <input name="movie_searched" type="text" placeholder="Pelicula a Buscar" required>
             </div>
         </form>
-        <div id="flex">
+        <div>
             <?php
                 require_once "../php/connect.php";
+                if ($_POST['movie_searched'] == NULL || $_POST['movie_searched'] == " ") {
+                    $last_movie_query = "SELECT * FROM users WHERE username = '{$_SESSION['username']}';";
+                    $result = $connection->query($last_movie_query);
+                    $row = $result->fetch_array(MYSQLI_ASSOC);
+                    if ($row['last_movie'] != '-') {
+                        $name = str_replace('_', ' ', $row['last_movie']);
+                        echo 
+                        "<h2>Volver a Ver:</h2>
+                        <div>
+                            <a href='play_video.php?movie={$row['last_movie']}'><img src='../images/Movies/{$row['last_movie']}.jpg'></a>
+                            <h2>$name</h2>
+                        </div>";
+                    }
+                }
+            ?>
+        </div>
+        <div id="flex">
+            <?php
                 if (isset($_POST['movie_searched']) && $_POST['movie_searched'] != " ") {
                     if ($_SESSION['child'] == 0) {
                         $movies_query = "SELECT * FROM movies WHERE name LIKE '%{$_POST['movie_searched']}%' ORDER BY name ASC;";
