@@ -110,6 +110,31 @@
             echo "<script language='javascript'>alert('No se puede ingresar una pelicula vacia');</script>";
         }
     }
+    if (isset($_POST['Update'])) {
+        if ($_POST['movie'] != " ") {
+            require_once "../php/connect.php";
+            $name = str_replace(' ', '_', $_POST['movie']);
+            $verify_query = "SELECT * FROM movies WHERE name = '$name';";
+            $result = $connection->query($verify_query);
+            if ($result->num_rows == 1) {
+                $child = 0;
+                if (isset($_POST['child'])) {
+                    $child = 1;
+                }
+                $name = str_replace(' ', '_', $_POST['movie']);
+                $movie_query = "UPDATE movies SET child = '$child' WHERE name = '$name';";
+                mysqli_query($connection, $movie_query);
+                echo "<script language='javascript'>alert('Se ha actualizado {$_POST['movie']} con exito')</script>";
+            }
+            else {
+                echo "<script language='javascript'>alert('La Pelicula {$_POST['movie']} no existe en el sistema')</script>";
+            }
+            mysqli_close($connection);
+        }
+        else {
+            echo "<script language='javascript'>alert('No se puede ingresar una pelicula vacia');</script>";
+        }
+    }
     if (isset($_POST['Delete'])) {
         if ($_POST['movie'] != " ") {
             require_once "../php/connect.php";

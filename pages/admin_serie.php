@@ -107,7 +107,7 @@
             if (isset($_POST['child'])) {
                 $child = 1;
             }
-            $serie_query = "INSERT INTO series (name_, seasons, limits, season_begin, chapter_begin, child) VALUES ('$name', {$_POST['seasons']}, '{$_POST['limits']}', {$_POST['season_begin']}, {$_POST['chapter_begin'], $child});";
+            $serie_query = "INSERT INTO series (name_, seasons, limits, season_begin, chapter_begin, child) VALUES ('$name', {$_POST['seasons']}, '{$_POST['limits']}', {$_POST['season_begin']}, {$_POST['chapter_begin']}, $child);";
             mysqli_query($connection, $serie_query);
             echo "<script language='javascript'>alert('Se ha agregado {$_POST['serie']} con exito')</script>";
         }
@@ -128,7 +128,7 @@
             $row = $result->fetch_array(MYSQLI_ASSOC);
             $seasons = $row['seasons'] + $_POST['seasons'];
             $limits = $row['limits'] . '/' . $_POST['limits'];
-            $update_query = "UPDATE series SET seasons = $seasons, limits = $limits, child = $child WHERE name = {$row['name']};";
+            $update_query = "UPDATE series SET seasons = $seasons, limits = '$limits', child = $child WHERE name_ = '$name';";
             mysqli_query($connection, $update_query);
             echo "<script language='javascript'>alert('Se ha actualizado {$_POST['serie']} con exito')</script>";
         }

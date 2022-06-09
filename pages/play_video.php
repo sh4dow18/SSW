@@ -70,6 +70,11 @@
                     }
                     echo "<div><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$next&max={$_GET['max']}'>Ver el Episodio $next</a><i class='fas fa-angle-right'></i></div>";
                 }
+                if (isset($_GET['serie']) && $_GET['chapter'] == $_GET['max'] && $_GET['season'] != $_GET['seasons']) {
+                    $next = "01";
+                    $next_season = intval($_GET['season']) + 1;
+                    echo "<div><a href='play_video.php?serie={$_GET['serie']}&season=$next_season&chapter=$next&max={$_GET['max']}'>Ver el Episodio $next de la Temporada $next_season</a><i class='fas fa-angle-right'></i></div>";
+                }
             ?>
         </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
