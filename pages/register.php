@@ -49,7 +49,7 @@
                 if (isset($_POST['child'])) {
                     $child = 1;
                 }
-                $register_query = "INSERT INTO users (username, password, loggedin, child, last_movie, last_serie, last_season, last_chapter) VALUES ('{$_POST['username']}', md5('{$_POST['password']}'), 1, $child, '-', '-', 0, 0, 0);";
+                $register_query = "INSERT INTO users (username, password, loggedin, child, last_movie, last_serie, last_season, last_chapter, max_chapters) VALUES ('{$_POST['username']}', md5('{$_POST['password']}'), 1, $child, '-', '-', 0, 0, 0);";
                 mysqli_query($connection, $register_query);
                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $_POST["username"];

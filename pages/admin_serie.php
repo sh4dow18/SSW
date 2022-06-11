@@ -69,9 +69,9 @@
                     </datalist>
                     <h3>Serie:</h3>
                     <input name="serie" type="list" list="list" placeholder="Serie" required>
-                    <h3>Agregar Temporadas:</h3>
+                    <h3>Nueva Cantidad de Temporadas:</h3>
                     <input name="seasons" type="number" placeholder="2" required>
-                    <h3>Agregar a Codigo de Capitulos:</h3>
+                    <h3>Nuevo Codigo de Capitulos:</h3>
                     <input name="limits" type="text" placeholder="15/10" required>
                     <div id="child">
                         <input type=checkbox name="child" value="yes">
@@ -126,8 +126,8 @@
                 $child = 1;
             }
             $row = $result->fetch_array(MYSQLI_ASSOC);
-            $seasons = $row['seasons'] + $_POST['seasons'];
-            $limits = $row['limits'] . '/' . $_POST['limits'];
+            $seasons = $_POST['seasons'];
+            $limits = $_POST['limits'];
             $update_query = "UPDATE series SET seasons = $seasons, limits = '$limits', child = $child WHERE name_ = '$name';";
             mysqli_query($connection, $update_query);
             echo "<script language='javascript'>alert('Se ha actualizado {$_POST['serie']} con exito')</script>";

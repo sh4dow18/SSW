@@ -61,19 +61,20 @@
                     if ($previous < 10) {
                         $previous = "0" . $previous;
                     }
-                    echo "<div><i class='fas fa-angle-left'></i><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$previous&max={$_GET['max']}'>Ver el Episodio $previous</a></div>";
+                    echo "<div><i class='fas fa-angle-left'></i><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$previous&max={$_GET['max']}&seasons={$_GET['seasons']}'>Ver el Episodio $previous</a></div>";
                 }
                 if (isset($_GET['serie']) && $_GET['chapter'] != $_GET['max']) {
                     $next = $_GET['chapter'] + 1;
                     if ($next < 10) {
                         $next = "0" . $next;
                     }
-                    echo "<div><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$next&max={$_GET['max']}'>Ver el Episodio $next</a><i class='fas fa-angle-right'></i></div>";
+                    echo "<div><a href='play_video.php?serie={$_GET['serie']}&season={$_GET['season']}&chapter=$next&max={$_GET['max']}&seasons={$_GET['seasons']}'>Ver el Episodio $next</a><i class='fas fa-angle-right'></i></div>";
                 }
                 if (isset($_GET['serie']) && $_GET['chapter'] == $_GET['max'] && $_GET['season'] != $_GET['seasons']) {
                     $next = "01";
+                    echo $_GET['chapter'] . " ". $_GET['max'] . " " . $_GET['season'] . " " . $_GET['seasons'];
                     $next_season = intval($_GET['season']) + 1;
-                    echo "<div><a href='play_video.php?serie={$_GET['serie']}&season=$next_season&chapter=$next&max={$_GET['max']}'>Ver el Episodio $next de la Temporada $next_season</a><i class='fas fa-angle-right'></i></div>";
+                    echo "<div><a href='play_video.php?serie={$_GET['serie']}&season=$next_season&chapter=$next&max={$_GET['max']}&seasons={$_GET['seasons']}'>Ver el Episodio $next de la Temporada $next_season</a><i class='fas fa-angle-right'></i></div>";
                 }
             ?>
         </div>
