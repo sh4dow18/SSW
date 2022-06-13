@@ -58,7 +58,7 @@
                         echo 
                         "<h2>Volver a Ver:</h2>
                         <div>
-                            <a href='play_video.php?serie={$row['last_serie']}&season={$row['last_season']}&chapter=$chapter&max={$row['max_chapters']}'><img src='../images/Series/{$row['last_serie']}.jpg'></a>
+                            <a href='play_video.php?serie={$row['last_serie']}&season={$row['last_season']}&chapter=$chapter&max={$row['max_chapters']}&seasons={$row['max_seasons']}'><img src='../images/Series/{$row['last_serie']}.jpg'></a>
                             <h2>$title</h2>
                         </div>";
                     }
