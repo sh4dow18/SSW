@@ -27,7 +27,7 @@
                     <input type="submit" name="Submit" value="Iniciar Sesion">
                 </div>
             </form>
-            <h3>No te has registrado? Has click <a href="register.php">aqui</a> para registrarte</h3>
+            <h3>No te has registrado? Has click <b><a href="register.php">aqui</a></b> para registrarte</h3>
         </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>

@@ -49,7 +49,7 @@
                 </div>
             </form>
         </div>
-        <p>Para ver las series, hacer click <a href='series.php' class='nav-link'>aqui</a></p>
+        <p>Para ver las series, hacer click <b><a href='series.php' class='nav-link'>aqui</a></b></p>
         <div id="login">
             <div id="login-header">
                 <h1>Actualizar Serie</h1>

@@ -72,7 +72,6 @@
                 }
                 if (isset($_GET['serie']) && $_GET['chapter'] == $_GET['max'] && $_GET['season'] != $_GET['seasons']) {
                     $next = "01";
-                    echo $_GET['seasons'];
                     $next_season = intval($_GET['season']) + 1;
                     echo "<div><a href='play_video.php?serie={$_GET['serie']}&season=$next_season&chapter=$next&max={$_GET['max']}&seasons={$_GET['seasons']}'>Ver el Episodio $next de la Temporada $next_season</a><i class='fas fa-angle-right'></i></div>";
                 }

@@ -26,8 +26,10 @@
                     if ($_SESSION['username'] == 'admin') {
                         echo "<a href='admin.php' class='nav-link'>Administracion</a>";
                     }
+                    else {
+                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Cambiar de Usuario</a>";
+                    }
                 ?>
-                <i class='fas fa-user'></i></i><a href="../php/destroy.php" class="nav-link">Cambiar de Usuario</a>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Cerrar Sesion</a>
             </nav>
         </header>

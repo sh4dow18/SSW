@@ -33,6 +33,7 @@
             <thead>
                 <tr>
                     <th>Usuario</th>
+                    <th>Es Niño?</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
@@ -43,9 +44,14 @@
                     $result = $connection->query($users_query);
                     while($row = $result->fetch_array(MYSQLI_ASSOC)){
                         if ($row['username'] != "admin") {
+                            $child = "No";
+                            if ($row['child'] == 1) {
+                                $child = "Si";
+                            }
                             echo
                             "<tr>
                                 <td>{$row['username']}</td>
+                                <td>$child</td>
                                 <td><a href='../php/delete_user.php?username={$row['username']}'>Eliminar</a></td>
                             </tr>";
                         }

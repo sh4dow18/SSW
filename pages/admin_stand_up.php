@@ -39,7 +39,7 @@
                 </div>
             </form>
         </div>
-        <p>Para ver los Stand Up Comedy, hacer click <a href='stand_up.php' class='nav-link'>aqui</a></p>
+        <p>Para ver los Stand Up Comedy, hacer click <b><a href='stand_up.php' class='nav-link'>aqui</a></b></p>
         <div id="login">
             <div id="login-header">
                 <h1>Eliminar Show</h1>
