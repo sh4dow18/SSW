@@ -34,7 +34,7 @@
                 </div>
             </form>
         </div>
-        <h3>Volver al <a href="login.php">Inicio de Sesion</a></h3>
+        <p>Volver al <b><a href="login.php">Inicio de Sesion</a></b><p>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
 </html>
