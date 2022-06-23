@@ -16,9 +16,9 @@
     </head>
     <body>
         <div id="title">
-            <?php echo "<h1>Hola $username</h1>"; ?>
+            <?php echo "<h1>Hello $username</h1>"; ?>
         </div>
-        <h2>Cuentame, que deseas ver hoy?</h2>
+        <h2>Tell me, what do you want to watch?</h2>
         <button class="custom-btn btn-11" id="Series">Series</button>
         <button class="custom-btn btn-11" id="Movies">Peliculas</button>
         <?php

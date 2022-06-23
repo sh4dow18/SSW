@@ -26,6 +26,7 @@
     else if (isset($_GET['comedian'])) {
         $title = $_GET['comedian'] . ": " . str_replace('_', ' ', $_GET['show']);
         $video = "$path/Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
+        echo $video;
         $return = "<i class='fas fa-angle-left'></i><a href='stand_up.php' class='nav-link'>Volver a Stand Up</a>";
     }
     mysqli_close($connection);

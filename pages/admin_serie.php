@@ -17,42 +17,42 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <a href="admin.php" class="nav-link">Usuarios</a>
-                <a href="admin_paths.php" class="nav-link">Rutas</a>
+                <a href="admin.php" class="nav-link">Users</a>
+                <a href="admin_paths.php" class="nav-link">Paths</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
-                <a href="admin_movie.php" class="nav-link">Peliculas</a>
+                <a href="admin_movie.php" class="nav-link">Movies</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="login">
             <div id="login-header">
-                <h1>Agregar Serie</h1>
+                <h1>Add Serie</h1>
             </div>
             <form action="admin_serie.php" method="post">
                 <div id="login-form">
                     <h3>Serie:</h3>
                     <input name="serie" type="text" placeholder="Serie" required>
-                    <h3>Cantidad de Temporadas:</h3>
+                    <h3>Amount of Seasons:</h3>
                     <input name="seasons" type="number" placeholder="3" required>
-                    <h3>Codigo de Capitulos:</h3>
+                    <h3>Chapters Code:</h3>
                     <input name="limits" type="text" placeholder="8/16/18" required>
-                    <h3>Temporada en la que Empieza:</h3>
+                    <h3>Season that Start:</h3>
                     <input name="season_begin" type="number" placeholder="1" required>
-                    <h3>Capitulo en el que Empieza:</h3>
+                    <h3>Chapter that Start:</h3>
                     <input name="chapter_begin" type="number" placeholder="1" required>
                     <div id="child">
                         <input type=checkbox name="child" value="yes">
-                        La Serie es Apta para Niños?
+                        Can children watch the serie?
                     </div>
-                    <input type="submit" name="Add" value="Agregar">
+                    <input type="submit" name="Add" value="Add">
                 </div>
             </form>
         </div>
-        <p>Para ver las series, hacer click <b><a href='series.php' class='nav-link'>aqui</a></b></p>
+        <p>To see the Series Catalog, click <b><a href='series.php' class='nav-link'>here</a></b></p>
         <div id="login">
             <div id="login-header">
-                <h1>Actualizar Serie</h1>
+                <h1>Edit Serie</h1>
             </div>
             <form action="admin_serie.php" method="post">
                 <div id="login-form">
@@ -69,27 +69,27 @@
                     </datalist>
                     <h3>Serie:</h3>
                     <input name="serie" type="list" list="list" placeholder="Serie" required>
-                    <h3>Nueva Cantidad de Temporadas:</h3>
+                    <h3>New Amount of Seasons:</h3>
                     <input name="seasons" type="number" placeholder="2" required>
-                    <h3>Nuevo Codigo de Capitulos:</h3>
+                    <h3>New Chapters Code:</h3>
                     <input name="limits" type="text" placeholder="15/10" required>
                     <div id="child">
                         <input type=checkbox name="child" value="yes">
-                        La Serie es Apta para Niños?
+                        Can children watch the serie?
                     </div>
-                    <input type="submit" name="Update" value="Actualizar">
+                    <input type="submit" name="Update" value="Update">
                 </div>
             </form>
         </div>
         <div id="login">
             <div id="login-header">
-                <h1>Eliminar Serie</h1>
+                <h1>Delete Serie</h1>
             </div>
             <form action="admin_serie.php" method="post">
                 <div id="login-form">
-                    <h3>Eliminar:</h3>
+                    <h3>Delete:</h3>
                     <input name="serie" type="list" list="list" placeholder="Serie" required>
-                    <input type="submit" name="Delete" value="Eliminar">
+                    <input type="submit" name="Delete" value="Delete">
                 </div>
             </form>
         </div>

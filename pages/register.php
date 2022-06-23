@@ -12,29 +12,29 @@
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo" href="../index.html"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo" href="../index.php"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
         </header>
         <div id="login">
             <div id="login-header">
-                <h1>Registro</h1>
+                <h1>Registration</h1>
             </div>
             <form action="register.php" method="post">
                 <div id="login-form">
-                    <h3>Usuario:</h3>
-                    <input name="username" type="text" placeholder="Usuario" required>
-                    <h3>Contraseña:</h3>
-                    <input name="password" type="password" placeholder="Contraseña" required>
-                    <h3>Repita la Contraseña:</h3>
-                    <input name="password_2" type="password" placeholder="Repita la Contraseña" required>
+                    <h3>Username:</h3>
+                    <input name="username" type="text" placeholder="Username" required>
+                    <h3>Password:</h3>
+                    <input name="password" type="password" placeholder="Password" required>
+                    <h3>Repeat the Password:</h3>
+                    <input name="password_2" type="password" placeholder="Repeat the Password" required>
                     <div id="child">
                         <input type=checkbox name="child" value="yes">
-                        Eres un Niño?
+                        Are you a Child?
                     </div>
-                    <input type="submit" name="Register" value="Registrarse">
+                    <input type="submit" name="Register" value="Register">
                 </div>
             </form>
         </div>
-        <p>Volver al <b><a href="login.php">Inicio de Sesion</a></b><p>
+        <p>Back to <b><a href="login.php">Login</a></b><p>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
 </html>

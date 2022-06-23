@@ -11,7 +11,7 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Volver al Inicio</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Back to Title Screen</a>
             </nav>
         </header>
         <div id="title">
@@ -19,13 +19,13 @@
         </div>
         <?php
             if ($_GET['error'] == 'db') {
-                echo "<h2>No se ha podido conectar con el servidor principal, vuelva a intentarlo</h2>";
+                echo "<h2>Failed to connect to server, please try again</h2>";
             }
             else if ($_GET['error'] == 'privileges') {
-                echo "<h2>Esta Pagina es solo para los Usuarios Autorizados</h2>";
+                echo "<h2>This Page is for Authorized Users only</h2>";
             }
             else {
-                echo "<h2>Esta Pagina es solo para los Usuarios Registrados</h2>";
+                echo "<h2>This Page is only for Registered Users</h2>";
             }
         ?>
     </body>

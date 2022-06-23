@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Peliculas</title>
+        <title>Movies</title>
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/logo.css">
         <link rel="stylesheet" type="text/css" href="../css/login.css">
@@ -17,50 +17,50 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <a href="admin.php" class="nav-link">Usuarios</a>
-                <a href="admin_paths.php" class="nav-link">Rutas</a>
+                <a href="admin.php" class="nav-link">Users</a>
+                <a href="admin_paths.php" class="nav-link">Paths</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
-                <a href="admin_movie.php" class="nav-link">Peliculas</a>
+                <a href="admin_movie.php" class="nav-link">Movies</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="login">
             <div id="login-header">
-                <h1>Agregar Pelicula</h1>
+                <h1>Add Movie</h1>
             </div>
             <form action="admin_movie.php" method="post">
                 <div id="login-form">
-                    <h3>Pelicula:</h3>
-                    <input name="movie" type="text" placeholder="Pelicula" required>
+                    <h3>Movie:</h3>
+                    <input name="movie" type="text" placeholder="Movie" required>
                     <div id="child">
                         <input type=checkbox name="child" value="yes">
-                        La Pelicula es Apta para Niños?
+                        Can children watch the movie?
                     </div>
-                    <input type="submit" name="Add" value="Agregar">
+                    <input type="submit" name="Add" value="Add">
                 </div>
             </form>
         </div>
-        <p>Para ver las peliculas, hacer click <b><a href='movies.php' class='nav-link'>aqui</a></b></p>
+        <p>To see the Movie Catalog, click <b><a href='movies.php' class='nav-link'>here</a></b></p>
         <div id="login">
             <div id="login-header">
-                <h1>Editar Pelicula</h1>
+                <h1>Edit Movie</h1>
             </div>
             <form action="admin_movie.php" method="post">
                 <div id="login-form">
-                    <h3>Pelicula:</h3>
-                    <input name="movie" type="text" placeholder="Pelicula" required>
+                    <h3>Movie:</h3>
+                    <input name="movie" type="text" placeholder="Movie" required>
                     <div id="child">
                         <input type=checkbox name="child" value="yes">
-                        La Pelicula es Apta para Niños?
+                        Can children watch the movie?
                     </div>
-                    <input type="submit" name="Update" value="Actualizar">
+                    <input type="submit" name="Update" value="Update">
                 </div>
             </form>
         </div>
         <div id="login">
             <div id="login-header">
-                <h1>Eliminar Pelicula</h1>
+                <h1>Delete Movie</h1>
             </div>
             <form action="admin_movie.php" method="post">
                 <div id="login-form">
@@ -75,9 +75,9 @@
                             }
                         ?>
                     </datalist>
-                    <h3>Pelicula:</h3>
-                    <input name="movie" type="list" list="list" placeholder="Pelicula" required>
-                    <input type="submit" name="Delete" value="Eliminar">
+                    <h3>Movie:</h3>
+                    <input name="movie" type="list" list="list" placeholder="Movie" required>
+                    <input type="submit" name="Delete" value="Delete">
                 </div>
             </form>
         </div>

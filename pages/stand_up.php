@@ -20,17 +20,17 @@
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
-                <a href="movies.php" class="nav-link">Peliculas</a>
-                <a href="stand_up.php" class="nav-link">Stand up</a>
+                <a href="movies.php" class="nav-link">Movies</a>
+                <a href='stand_up.php' class='nav-link'>Stand up</a>
                 <?php
                     if ($_SESSION['username'] == 'admin') {
-                        echo "<a href='admin.php' class='nav-link'>Administracion</a>";
+                        echo "<a href='admin.php' class='nav-link'>Administration</a>";
                     }
                     else {
-                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Cambiar de Usuario</a>";
+                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Change User</a>";
                     }
                 ?>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="title">
@@ -38,7 +38,7 @@
         </div>
         <form action="stand_up.php" method="post">
             <div id="search">
-                <input name="show_searched" type="text" placeholder="Show a Buscar" required>
+                <input name="show_searched" type="text" placeholder="Show to Search" required>
             </div>
         </form>
         <div id="flex">
@@ -55,7 +55,7 @@
                     $name = str_replace('_', ' ', $row['show_']);
                     echo 
                     "<div>
-                        <a href='play_video.php?comedian={$row['comedian']}&show={$row['show_']}'><img src='../images/comedy/{$row['comedian']}/{$row['show_']}.jpg'></a>
+                        <a href='play_video.php?comedian={$row['comedian']}&show={$row['show_']}'><img src='../images/Comedy/{$row['comedian']}/{$row['show_']}.jpg'></a>
                         <h2>$name</h2>
                     </div>";
                 }

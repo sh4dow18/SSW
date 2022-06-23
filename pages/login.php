@@ -16,18 +16,18 @@
         </header>
         <div id="login">
             <div id="login-header">
-                <h1>Iniciar Sesion</h1>
+                <h1>Login</h1>
             </div>
             <form action="login.php" method="post">
                 <div id="login-form">
-                    <h3>Usuario:</h3>
-                    <input name="username" type="text" placeholder="Usuario" required>
-                    <h3>Contraseña:</h3>
-                    <input name="password" type="password" placeholder="Contraseña" required>
-                    <input type="submit" name="Submit" value="Iniciar Sesion">
+                    <h3>Username:</h3>
+                    <input name="username" type="text" placeholder="Username" required>
+                    <h3>Password:</h3>
+                    <input name="password" type="password" placeholder="Password" required>
+                    <input type="submit" name="Submit" value="Login">
                 </div>
             </form>
-            <p>No te has registrado? Has click <b><a href="register.php">aqui</a></b> para registrarte</p1>
+            <p>Have you not registered? Click <b><a href="register.php">here</a></b> to register</p1>
         </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>

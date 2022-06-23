@@ -19,37 +19,37 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <a href="admin.php" class="nav-link">Usuarios</a>
-                <a href="admin_paths.php" class="nav-link">Rutas</a>
+                <a href="admin.php" class="nav-link">Users</a>
+                <a href="admin_paths.php" class="nav-link">Paths</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
-                <a href="admin_movie.php" class="nav-link">Peliculas</a>
+                <a href="admin_movie.php" class="nav-link">Movies</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="login">
             <div id="login-header">
-                <h1>Agregar Ruta</h1>
+                <h1>Add Path</h1>
             </div>
             <form action="admin_paths.php" method="post">
                 <div id="login-form">
-                    <h3>Nombre:</h3>
-                    <input name="name" type="text" placeholder="Nombre" required>
-                    <h3>Ruta:</h3>
-                    <input name="path" type="text" placeholder="Ruta" required>
-                    <input type="submit" name="Add" value="Agregar">
+                    <h3>Name:</h3>
+                    <input name="name" type="text" placeholder="Name" required>
+                    <h3>Path:</h3>
+                    <input name="path" type="text" placeholder="Path" required>
+                    <input type="submit" name="Add" value="Add">
                 </div>
             </form>
         </div>
         <div id="title">
-            <h1>Rutas</h1>
+            <h1>Paths</h1>
         </div>
         <table class="container">
             <thead>
                 <tr>
-                    <th>Ruta</th>
-                    <th>Seleccionar</th>
-                    <th>Eliminar</th>
+                    <th>Path</th>
+                    <th>Select</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,12 +64,12 @@
                         echo
                         "<tr>
                             <td>{$row['name']}</td>
-                            <td><a href='../php/select_path.php?path_name={$row['name']}'>Seleccionar</a></td>";
+                            <td><a href='../php/select_path.php?path_name={$row['name']}'>Select</a></td>";
                         if ($row['name'] != "Default") {
-                            echo "<td><a href='../php/delete_path.php?path_name={$row['name']}'>Eliminar</a></td>";
+                            echo "<td><a href='../php/delete_path.php?path_name={$row['name']}'>Delete</a></td>";
                         }
                         else {
-                            echo "<td>Eliminar</td>";
+                            echo "<td>Delete</td>";
                         }
                         echo "</tr>";
                     }
@@ -77,7 +77,7 @@
             </tbody>
         </table>
         <?php
-            echo "<p>La ruta seleccionada es <b>$selected</b></p>";
+            echo "<p>The Selected Path is <b>$selected</b></p>";
         ?>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>

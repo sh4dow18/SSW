@@ -20,19 +20,19 @@
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
-                <a href="movies.php" class="nav-link">Peliculas</a>
+                <a href="movies.php" class="nav-link">Movies</a>
                 <?php
                     if ($_SESSION['child'] == 0) {
                         echo "<a href='stand_up.php' class='nav-link'>Stand up</a>";
                     }
                     if ($_SESSION['username'] == 'admin') {
-                        echo "<a href='admin.php' class='nav-link'>Administracion</a>";
+                        echo "<a href='admin.php' class='nav-link'>Administration</a>";
                     }
                     else {
-                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Cambiar de Usuario</a>";
+                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Change User</a>";
                     }
                 ?>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="title">
@@ -40,7 +40,7 @@
         </div>
         <form action="series.php" method="post">
             <div id="search">
-                <input name="serie_searched" type="text" placeholder="Serie a Buscar" required>
+                <input name="serie_searched" type="text" placeholder="Serie to Search" required>
             </div>
         </form>
         <div>
@@ -58,7 +58,7 @@
                         }
                         $title = $name . ": S" . $row['last_season'] . "E" . $chapter;
                         echo 
-                        "<h2>Volver a Ver:</h2>
+                        "<h2>Watch Again:</h2>
                         <div>
                             <a href='play_video.php?serie={$row['last_serie']}&season={$row['last_season']}&chapter=$chapter&max={$row['max_chapters']}&seasons={$row['max_seasons']}'><img src='../images/Series/{$row['last_serie']}.jpg'></a>
                             <h2>$title</h2>

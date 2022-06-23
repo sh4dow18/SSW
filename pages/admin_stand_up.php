@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Peliculas</title>
+        <title>Stand Up</title>
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/logo.css">
         <link rel="stylesheet" type="text/css" href="../css/login.css">
@@ -17,32 +17,32 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <a href="admin.php" class="nav-link">Usuarios</a>
-                <a href="admin_paths.php" class="nav-link">Rutas</a>
+                <a href="admin.php" class="nav-link">Users</a>
+                <a href="admin_paths.php" class="nav-link">Paths</a>
                 <a href="admin_serie.php" class="nav-link">Series</a>
-                <a href="admin_movie.php" class="nav-link">Peliculas</a>
+                <a href="admin_movie.php" class="nav-link">Movies</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="login">
             <div id="login-header">
-                <h1>Agregar Show</h1>
+                <h1>Add Show</h1>
             </div>
             <form action="admin_stand_up.php" method="post">
                 <div id="login-form">
-                    <h3>Comediante:</h3>
-                    <input name="comedian" type="text" placeholder="Comediante" required>
-                    <h3>Nombre del Show:</h3>
+                    <h3>Comedian:</h3>
+                    <input name="comedian" type="text" placeholder="Comedian" required>
+                    <h3>Show:</h3>
                     <input name="show" type="text" placeholder="Show" required>
-                    <input type="submit" name="Add" value="Agregar">
+                    <input type="submit" name="Add" value="Add">
                 </div>
             </form>
         </div>
-        <p>Para ver los Stand Up Comedy, hacer click <b><a href='stand_up.php' class='nav-link'>aqui</a></b></p>
+        <p>To see the Shows Catalog, click <b><a href='stand_up.php' class='nav-link'>here</a></b></p>
         <div id="login">
             <div id="login-header">
-                <h1>Eliminar Show</h1>
+                <h1>Delete Show</h1>
             </div>
             <form action="admin_stand_up.php" method="post">
                 <div id="login-form">
@@ -71,11 +71,11 @@
                             }
                         ?>
                     </datalist>
-                    <h3>Comediante:</h3>
-                    <input name="comedian" type="list" list="list1" placeholder="Comediante" required>
-                    <h3>Nombre del Show:</h3>
+                    <h3>Comedian:</h3>
+                    <input name="comedian" type="list" list="list1" placeholder="Comedian" required>
+                    <h3>Show:</h3>
                     <input name="show" type="list" list="list2" placeholder="Show" required>
-                    <input type="submit" name="Delete" value="Eliminar">
+                    <input type="submit" name="Delete" value="Delete">
                 </div>
             </form>
         </div>
@@ -90,7 +90,7 @@
         $verify_query = "SELECT * FROM standup WHERE comedian = '$comedian' AND show_ = '$show';";
         $result = $connection->query($verify_query);
         if ($result->num_rows == 0) {
-            $stand_up_query = "INSERT INTO standup (comedian, show_) VALUES ('$comedian', '$show');";
+            $stand_up_query = "INSERT INTO standup (comedian, show_, order_) VALUES ('$comedian', '$show', 0);";
             mysqli_query($connection, $stand_up_query);
             echo "<script language='javascript'>alert('Se ha agregado el show {$_POST['show']} de {$_POST['comedian']} con exito')</script>";
         }

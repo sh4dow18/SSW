@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Temporadas</title>
+        <title>Seasons</title>
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/logo.css">
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
@@ -23,12 +23,12 @@
         <header>
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
-                <i class='fas fa-angle-left'></i><a href="series.php" class="nav-link">Volver a Series</a>
+                <i class='fas fa-angle-left'></i><a href="series.php" class="nav-link">Back to Series</a>
             </nav>
         </header>
         <div id="title">
             <?php
-                echo "<h1>Temporadas de $title</h1>";
+                echo "<h1>Seasons of $title</h1>";
             ?>
         </div>
         <?php
@@ -42,10 +42,10 @@
             $lenght = 2;
             for ($iterable = 1; $iterable <= $number_of_seasons; $iterable++) {
                 echo
-                "<h2>Temporada $first_season</h2>
+                "<h2>Season $first_season</h2>
                 <table class='container'>
                     <thead>
-                        <th>Episodio</th>
+                        <th>Chapter</th>
                     </thead>
                     <tbody>";
                 $number_of_chapters = intval(substr($row['limits'], $begin, $lenght));
@@ -55,7 +55,7 @@
                     }
                     echo
                     "   <tr>
-                            <td><a href='play_video.php?serie=$serie&season=$first_season&chapter=$first_chapter&max=$number_of_chapters&seasons=$number_of_seasons'>Episodio $first_chapter</a></td>
+                            <td><a href='play_video.php?serie=$serie&season=$first_season&chapter=$first_chapter&max=$number_of_chapters&seasons=$number_of_seasons'>Chapter $first_chapter</a></td>
                         </tr>";
                     $first_chapter = intval($first_chapter);
                     $first_chapter++;

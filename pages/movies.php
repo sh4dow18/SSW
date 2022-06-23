@@ -20,27 +20,27 @@
             <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
-                <a href="movies.php" class="nav-link">Peliculas</a>
+                <a href="movies.php" class="nav-link">Movies</a>
                 <?php
                     if ($_SESSION['child'] == 0) {
                         echo "<a href='stand_up.php' class='nav-link'>Stand up</a>";
                     }
                     if ($_SESSION['username'] == 'admin') {
-                        echo "<a href='admin.php' class='nav-link'>Administracion</a>";
+                        echo "<a href='admin.php' class='nav-link'>Administration</a>";
                     }
                     else {
-                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Cambiar de Usuario</a>";
+                        echo "<i class='fas fa-user'></i></i><a href='../php/destroy.php' class='nav-link'>Change User</a>";
                     }
                 ?>
-                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Cerrar Sesion</a>
+                <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php?die=yes" class="nav-link">Log Out</a>
             </nav>
         </header>
         <div id="title">
-            <h1>Peliculas</h1>
+            <h1>Movies</h1>
         </div>
         <form action="movies.php" method="post">
             <div id="search">
-                <input name="movie_searched" type="text" placeholder="Pelicula a Buscar" required>
+                <input name="movie_searched" type="text" placeholder="Movie to Search" required>
             </div>
         </form>
         <div>
@@ -53,7 +53,7 @@
                     if ($row['last_movie'] != '-') {
                         $name = str_replace('_', ' ', $row['last_movie']);
                         echo 
-                        "<h2>Volver a Ver:</h2>
+                        "<h2>Watch Again:</h2>
                         <div>
                             <a href='play_video.php?movie={$row['last_movie']}'><img src='../images/Movies/{$row['last_movie']}.jpg'></a>
                             <h2>$name</h2>
