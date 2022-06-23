@@ -21,20 +21,20 @@
         <link rel="stylesheet" type="text/css" href="css/home_buttons.css">
     </head>
     <body>
-        <h1>Bienvenido/a a:</h1>
+        <h1>Welcome to:</h1>
         <div id="main">
             <h1>Sh4dow18 Streaming Website</h1>
         </div>
         <?php
             if (count($users) != 0) {
-                echo "<h3>Existen Sesiones Abiertas, deseas ingresar rapidamente como:</h3>";
+                echo "<h3>There are Open Sessions, you want to enter quickly as:</h3>";
                 foreach ($users as $user) {
                     echo "<button class='custom-btn btn-11 Login'>$user</button>";
                 }
-                echo "<h3>Eres otra persona? Entonces para ir a iniciar sesion has click <a href='pages/login.php'>aqui</a></h3>";
+                echo "<h3>You are another person? So to go to login click <a href='pages/login.php'>here</a></h3>";
             }
             else {
-                echo "<h3>No has iniciado sesion parece, entonces para ir a iniciar sesion has click <a href='pages/login.php'>aqui</a></h3>";
+                echo "<h3>It seems that you are not logged in, so to go to log in click <a href='pages/login.php'>here</a></h3>";
             }
         ?>
         <script language="javascript" src="js/login.js"></script>
