@@ -19,12 +19,11 @@
         <link rel="stylesheet" type="text/css" href="css/general.css">
         <link rel="stylesheet" type="text/css" href="css/titles.css">
         <link rel="stylesheet" type="text/css" href="css/home_buttons.css">
+        <link rel="icon" type="image/x-icon" href="images/SSW/favicon.ico">
     </head>
     <body>
         <h1>Welcome to:</h1>
-        <div id="main">
-            <h1>Sh4dow18 Streaming Website</h1>
-        </div>
+        <img id="logo" src="images/SSW/logo.png">
         <?php
             if (count($users) != 0) {
                 echo "<h3>There are Open Sessions, you want to enter quickly as:</h3>";

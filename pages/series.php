@@ -14,10 +14,11 @@
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
         <link rel="stylesheet" type="text/css" href="../css/search.css">
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo"><img src="../images/SSW/logo.png" alt="logo" class="logo-img"></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
                 <a href="movies.php" class="nav-link">Movies</a>
@@ -60,7 +61,7 @@
                         echo 
                         "<h2>Watch Again:</h2>
                         <div>
-                            <a href='play_video.php?serie={$row['last_serie']}&season={$row['last_season']}&chapter=$chapter&max={$row['max_chapters']}&seasons={$row['max_seasons']}'><img src='../images/Series/{$row['last_serie']}.jpg'></a>
+                            <a href='play_video.php?serie={$row['last_serie']}&season={$row['last_season']}&chapter=$chapter&max={$row['max_chapters']}&seasons={$row['max_seasons']}'><img class='cover' src='../images/Series/{$row['last_serie']}.jpg'></a>
                             <h2>$title</h2>
                         </div>";
                     }
@@ -90,7 +91,7 @@
                     $name = str_replace('_', ' ', $row['name_']);
                     echo 
                     "<div>
-                        <a href='seasons_and_chapters.php?serie={$row['name_']}'><img src='../images/Series/{$row['name_']}.jpg'></a>
+                        <a href='seasons_and_chapters.php?serie={$row['name_']}'><img class='cover' src='../images/Series/{$row['name_']}.jpg'></a>
                         <h2>$name</h2>
                     </div>";
                 }

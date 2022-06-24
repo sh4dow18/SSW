@@ -6,10 +6,11 @@
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/logo.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css"> 
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
    </head>
     <body>
         <header>
-            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo"><img src="../images/SSW/logo.png" alt="logo" class="logo-img"></a>
             <nav>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Back to Title Screen</a>
             </nav>

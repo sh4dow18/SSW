@@ -14,10 +14,11 @@
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
         <link rel="stylesheet" type="text/css" href="../css/search.css">
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo"><img src="../images/SSW/logo.png" alt="logo" class="logo-img"></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
                 <a href="movies.php" class="nav-link">Movies</a>
@@ -55,7 +56,7 @@
                         echo 
                         "<h2>Watch Again:</h2>
                         <div>
-                            <a href='play_video.php?movie={$row['last_movie']}'><img src='../images/Movies/{$row['last_movie']}.jpg'></a>
+                            <a href='play_video.php?movie={$row['last_movie']}'><img class='cover' src='../images/Movies/{$row['last_movie']}.jpg'></a>
                             <h2>$name</h2>
                         </div>";
                     }
@@ -86,7 +87,7 @@
                     $name = str_replace('_', ' ', $row['name']);
                     echo 
                     "<div>
-                        <a href='play_video.php?movie={$row['name']}'><img src='../images/Movies/{$row['name']}.jpg'></a>
+                        <a href='play_video.php?movie={$row['name']}'><img class='cover' src='../images/Movies/{$row['name']}.jpg'></a>
                         <h2>$name</h2>
                     </div>";
                 }

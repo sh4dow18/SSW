@@ -26,7 +26,6 @@
     else if (isset($_GET['comedian'])) {
         $title = $_GET['comedian'] . ": " . str_replace('_', ' ', $_GET['show']);
         $video = "$path/Comedy/{$_GET['comedian']}/{$_GET['show']}.mp4";
-        echo $video;
         $return = "<i class='fas fa-angle-left'></i><a href='stand_up.php' class='nav-link'>Volver a Stand Up</a>";
     }
     mysqli_close($connection);
@@ -41,10 +40,11 @@
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
         <link rel="stylesheet" type="text/css" href="../css/video.css">
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo"><img src="../images/SSW/logo.png" alt="logo" class="logo-img"></a>
             <nav>
                 <?php echo $return; ?>
             </nav>

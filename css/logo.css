@@ -21,10 +21,6 @@ nav {
     padding-bottom: 15px;
 }
 
-.logo-nombre {
-    font-size: 1.3em;
-}
-
 nav a {
     padding-left: 10px;
 }
@@ -35,7 +31,7 @@ nav a {
 }
 
 .logo img {
-    height: 50px;
+    height: 100px;
     margin-right: 15px;
 }
 

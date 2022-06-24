@@ -13,10 +13,11 @@
         <link rel="stylesheet" type="text/css" href="../css/logo.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
         <link rel="stylesheet" type="text/css" href="../css/admin_table.css">
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo"><img src="../images/SSW/logo.png" alt="logo" class="logo-img"></a>
             <nav>
                 <a href="admin.php" class="nav-link">Users</a>
                 <a href="admin_paths.php" class="nav-link">Paths</a>

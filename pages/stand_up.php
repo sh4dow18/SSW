@@ -14,10 +14,11 @@
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
         <link rel="stylesheet" type="text/css" href="../css/search.css">
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
     </head>
     <body>
         <header>
-            <a id="logo-header" class="logo"><img src="../images/logo.png" alt="logo" class="logo-img"><p class="logo-nombre">Sh4dow18 Streaming Website</p></a>
+            <a id="logo-header" class="logo"><img src="../images/SSW/logo.png" alt="logo" class="logo-img"></a>
             <nav>
                 <i class="fas fa-home"></i><a href="series.php" class="nav-link">Series</a>
                 <a href="movies.php" class="nav-link">Movies</a>
@@ -55,7 +56,7 @@
                     $name = str_replace('_', ' ', $row['show_']);
                     echo 
                     "<div>
-                        <a href='play_video.php?comedian={$row['comedian']}&show={$row['show_']}'><img src='../images/Comedy/{$row['comedian']}/{$row['show_']}.jpg'></a>
+                        <a href='play_video.php?comedian={$row['comedian']}&show={$row['show_']}'><img class='cover' src='../images/Comedy/{$row['comedian']}/{$row['show_']}.jpg'></a>
                         <h2>$name</h2>
                     </div>";
                 }

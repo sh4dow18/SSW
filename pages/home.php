@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/titles.css">
         <link rel="stylesheet" type="text/css" href="../css/home_buttons.css">
+        <link rel="icon" type="image/x-icon" href="../images/SSW/favicon.ico">
     </head>
     <body>
         <div id="title">
