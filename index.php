@@ -26,14 +26,14 @@
         <img id="logo" src="images/SSW/logo.png">
         <?php
             if (count($users) != 0) {
-                echo "<h3>There are Open Sessions, you want to enter quickly as:</h3>";
+                echo "<p>There are Open Sessions, you want to enter quickly as:</p>";
                 foreach ($users as $user) {
                     echo "<button class='custom-btn btn-11 Login'>$user</button>";
                 }
-                echo "<h3>You are another person? So to go to login click <a href='pages/login.php'>here</a></h3>";
+                echo "<p>You are another person? So to go to login click <b><a href='pages/login.php'>here</a></b></p>";
             }
             else {
-                echo "<h3>It seems that you are not logged in, so to go to log in click <a href='pages/login.php'>here</a></h3>";
+                echo "<p>It seems that you are not logged in, so to go to log in click <b><a href='pages/login.php'>here</a></b></p>";
             }
         ?>
         <script language="javascript" src="js/login.js"></script>
