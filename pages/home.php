@@ -21,7 +21,7 @@
         </div>
         <h2>Tell me, what do you want to watch?</h2>
         <button class="custom-btn btn-11" id="Series">Series</button>
-        <button class="custom-btn btn-11" id="Movies">Peliculas</button>
+        <button class="custom-btn btn-11" id="Movies">Movies</button>
         <?php
             if ($_SESSION['child'] == 0) {
                 echo "<button class='custom-btn btn-11' id='Stand_Up'>Stand Up</button>";
