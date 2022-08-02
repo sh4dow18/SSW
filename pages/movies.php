@@ -42,23 +42,33 @@
         <form action="movies.php" method="post">
             <div id="search">
                 <input name="movie_searched" type="text" placeholder="Movie to Search" required>
+                <a href="advanced_search.php">Advanced Search</a>
             </div>
         </form>
         <div>
             <?php
                 require_once "../php/connect.php";
                 if ($_POST['movie_searched'] == NULL || $_POST['movie_searched'] == " ") {
-                    $last_movie_query = "SELECT * FROM users WHERE username = '{$_SESSION['username']}';";
-                    $result = $connection->query($last_movie_query);
-                    $row = $result->fetch_array(MYSQLI_ASSOC);
-                    if ($row['last_movie'] != '-') {
-                        $name = str_replace('_', ' ', $row['last_movie']);
-                        echo 
-                        "<h2>Watch Again:</h2>
-                        <div>
-                            <a href='play_video.php?movie={$row['last_movie']}'><img class='cover' src='../images/Movies/{$row['last_movie']}.jpg'></a>
-                            <h2>$name</h2>
-                        </div>";
+                    $visible = 1;
+                    if ($_POST['category'] != NULL) {
+                        $visible = 0;
+                    }
+                    else if ($_POST['gender'] != NULL) {
+                        $visible = 0;
+                    }
+                    if ($visible == 1) {
+                        $last_movie_query = "SELECT * FROM users WHERE username = '{$_SESSION['username']}';";
+                        $result = $connection->query($last_movie_query);
+                        $row = $result->fetch_array(MYSQLI_ASSOC);
+                        if ($row['last_movie'] != '-') {
+                            $name = str_replace('_', ' ', $row['last_movie']);
+                            echo 
+                            "<h2>Watch Again:</h2>
+                            <div>
+                                <a href='play_video.php?movie={$row['last_movie']}'><img class='cover' src='../images/Movies/{$row['last_movie']}.jpg'></a>
+                                <h2>$name</h2>
+                            </div>";
+                        }
                     }
                 }
             ?>
@@ -75,12 +85,37 @@
                 }
                 else {
                     if ($_SESSION['child'] == 0) {
-                        $movies_query = "SELECT * FROM movies ORDER BY name ASC";
+                        if (isset($_POST['category'])) {
+                            if ($_POST['category'] == "Marvel") {
+                                $movies_query = "SELECT * FROM movies WHERE category = '{$_POST['category']}' ORDER BY order_ ASC;";
+                            }
+                            else {
+                                $movies_query = "SELECT * FROM movies WHERE category = '{$_POST['category']}' ORDER BY name ASC;";
+                            }
+                        }
+                        else if (isset($_POST['gender'])) {
+                            $movies_query = "SELECT * FROM movies WHERE gender = '{$_POST['gender']}' ORDER BY name ASC;";
+                        }
+                        else {
+                            $movies_query = "SELECT * FROM movies ORDER BY name ASC";
+                        }
                     }
                     else {
-                        $movies_query = "SELECT * FROM movies WHERE child = {$_SESSION['child']} ORDER BY name ASC";
+                        if (isset($_POST['category'])) {
+                            if ($_POST['category'] == "Marvel") {
+                                $movies_query = "SELECT * FROM movies WHERE child = {$_SESSION['child']} and category = '{$_POST['category']}' ORDER BY order_ ASC";
+                            }
+                            else {
+                                $movies_query = "SELECT * FROM movies WHERE child = {$_SESSION['child']} and category = '{$_POST['category']}' ORDER BY name ASC";
+                            }
+                        }
+                        if (isset($_POST['category'])) {
+                            $movies_query = "SELECT * FROM movies WHERE child = {$_SESSION['child']} and gender = '{$_POST['gender']}' ORDER BY name ASC";
+                        }
+                        else {
+                            $movies_query = "SELECT * FROM movies WHERE child = {$_SESSION['child']} ORDER BY name ASC";
+                        }
                     }
-                    
                 }
                 $result = $connection->query($movies_query);
                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
