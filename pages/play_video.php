@@ -11,7 +11,7 @@
     if (isset($_GET['serie'])) {
         $name = str_replace('_', ' ', $_GET['serie']);
         $title = $name . ": S" . $_GET['season'] . "E" . $_GET['chapter'];
-        $video = "$path/Series/{$_GET['serie']}/Season {$_GET['season']}/Episode {$_GET['chapter']}.mp4";
+        $video = "$path/Series/{$_GET['serie']}/Season_{$_GET['season']}/Episode_{$_GET['chapter']}.mp4";
         $return = "<i class='fas fa-angle-left'></i><a href='seasons_and_chapters.php?serie={$_GET['serie']}' class='nav-link'>Volver a los capitulos de $name</a>";
         $last_video = "UPDATE users SET last_serie = '{$_GET['serie']}', last_season = '{$_GET['season']}', last_chapter = '{$_GET['chapter']}', max_chapters = '{$_GET['max']}', max_seasons = '{$_GET['seasons']}' WHERE username = '{$_SESSION['username']}';";
         mysqli_query($connection, $last_video);

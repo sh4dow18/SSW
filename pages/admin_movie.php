@@ -23,8 +23,6 @@
                 <a href="admin_serie.php" class="nav-link">Series</a>
                 <a href="admin_movie.php" class="nav-link">Movies</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
-                <a href="admin_categories.php" class="nav-link">Categories</a>
-                <a href="admin_genders.php" class="nav-link">Genders</a>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Log Out</a>
             </nav>
         </header>
@@ -81,6 +79,30 @@
                     <h3>Movie:</h3>
                     <input name="movie" type="list" list="list" placeholder="Movie" required>
                     <input type="submit" name="Delete" value="Delete">
+                </div>
+            </form>
+        </div>
+        <div id="login">
+            <div id="login-header">
+                <h1>Backup</h1>
+            </div>
+            <form action="admin_movie.php" method="post">
+                <div id="login-form">
+                    <h3>File:</h3>
+                    <input name="file" type="text" placeholder="File" required>
+                    <input type="submit" name="Backup" value="Backup">
+                </div>
+            </form>
+        </div>
+        <div id="login">
+            <div id="login-header">
+                <h1>Backup for Children</h1>
+            </div>
+            <form action="admin_movie.php" method="post">
+                <div id="login-form">
+                    <h3>File:</h3>
+                    <input name="file" type="text" placeholder="File" required>
+                    <input type="submit" name="Backup_Child" value="Backup">
                 </div>
             </form>
         </div>
@@ -157,6 +179,52 @@
         }
         else {
             echo "<script language='javascript'>alert('No se puede eliminar una pelicula vacia');</script>";
+        }
+    }
+    if (isset($_POST['Backup'])) {
+        if ($_POST['file'] != " ") {
+            require_once "../php/connect.php";
+            $file_path = $_POST['file'];
+            if (($movies = file($file_path)) != 0) {
+                foreach ($movies as $movie) {
+                    $name = str_replace(' ', '_', $movie);
+                    $name = str_replace('\n', '', $name);
+                    $verify_query = "SELECT * FROM movies WHERE name = '$name';";
+                    $result = $connection->query($verify_query);
+                    if ($result->num_rows == 0) {
+                        $movie_query = "INSERT INTO movies (name, child) VALUES ('$name', 0);";
+                        mysqli_query($connection, $movie_query);   
+                    }
+                }
+                echo "<script language='javascript'>alert('Backup was Finished Successfully');</script>";
+            }
+            mysqli_close($connection);
+        }
+        else {
+            echo "<script language='javascript'>alert('File path is Blank');</script>";
+        }
+    }
+    if (isset($_POST['Backup_Child'])) {
+        if ($_POST['file'] != " ") {
+            require_once "../php/connect.php";
+            $file_path = $_POST['file'];
+            if (($movies = file($file_path)) != 0) {
+                foreach ($movies as $movie) {
+                    $name = str_replace(' ', '_', $movie);
+                    $name = str_replace('\n', '', $name);
+                    $verify_query = "SELECT * FROM movies WHERE name = '$name';";
+                    $result = $connection->query($verify_query);
+                    if ($result->num_rows == 1) {
+                        $movie_query = "UPDATE movies SET child = 1 WHERE name = '$name';";
+                        mysqli_query($connection, $movie_query);   
+                    }
+                }
+                echo "<script language='javascript'>alert('Backup was Finished Successfully');</script>";
+            }
+            mysqli_close($connection);
+        }
+        else {
+            echo "<script language='javascript'>alert('File path is Blank');</script>";
         }
     }
 ?>

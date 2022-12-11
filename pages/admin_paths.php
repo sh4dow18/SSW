@@ -25,8 +25,6 @@
                 <a href="admin_serie.php" class="nav-link">Series</a>
                 <a href="admin_movie.php" class="nav-link">Movies</a>
                 <a href="admin_stand_up.php" class="nav-link">Stand Up</a>
-                <a href="admin_categories.php" class="nav-link">Categories</a>
-                <a href="admin_genders.php" class="nav-link">Genders</a>
                 <i class='fas fa-angle-left'></i></i><a href="../php/destroy.php" class="nav-link">Log Out</a>
             </nav>
         </header>

@@ -82,6 +82,18 @@
                 </div>
             </form>
         </div>
+        <div id="login">
+            <div id="login-header">
+                <h1>Backup</h1>
+            </div>
+            <form action="admin_stand_up.php" method="post">
+                <div id="login-form">
+                    <h3>File:</h3>
+                    <input name="file" type="text" placeholder="File" required>
+                    <input type="submit" name="Backup" value="Backup">
+                </div>
+            </form>
+        </div>
         <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </body>
 </html>
@@ -115,6 +127,40 @@
         }
         else {
             echo "<script language='javascript'>alert('La Serie {$_POST['show']} ya existe en el sistema')</script>";
+        }
+    }
+    if (isset($_POST['Backup'])) {
+        if ($_POST['file'] != " ") {
+            require_once "../php/connect.php";
+            $file_path = $_POST['file'];
+            if (($shows = file($file_path)) != 0) {
+                $counter = 0;
+                $comedian_name = "";
+                foreach ($shows as $show) {
+                    if ($counter == 0) {
+                        $comedian_name = str_replace(' ', '_', $show);
+                        $comedian_name = str_replace('\n', '', $comedian_name);
+                        $counter = 1;
+                    }
+                    else {
+                        $show_name = str_replace(' ', '_', $show);
+                        $show_name = str_replace('\n', '', $show_name);
+                        $verify_query = "SELECT * FROM standup WHERE comedian = '$comedian_name' AND show_ = '$show_name';";
+                        $result = $connection->query($verify_query);
+                        if ($result->num_rows == 0) {
+                            $movie_query = "INSERT INTO standup (comedian, show_, order_) VALUES ('$comedian_name', '$show_name', 0);";
+                            mysqli_query($connection, $movie_query);
+                        }
+                        $comedian_name = "";
+                        $counter = 0;
+                    }
+                }
+                echo "<script language='javascript'>alert('Backup was Finished Successfully');</script>";
+            }
+            mysqli_close($connection);
+        }
+        else {
+            echo "<script language='javascript'>alert('File path is Blank');</script>";
         }
     }
     mysqli_close($connection);
